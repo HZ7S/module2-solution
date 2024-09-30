@@ -8,6 +8,7 @@ body {
     font-family: Arial, sans-serif;
     font-size: 16px;
     background-color: #525050;
+    color: #333; /* Added for better readability */
 }
 
 .container {
@@ -20,10 +21,14 @@ h1 {
     font-size: 1.75em;
     margin: 30px 0;
     text-align: center;
+    color: #fff; /* Added for better contrast */
 }
 
 .row {
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: -15px; /* Negative margin to counteract padding on sections */
 }
 
 section {
@@ -32,6 +37,8 @@ section {
     margin-bottom: 30px;
     padding: 45px 15px 15px 15px;
     position: relative;
+    flex-grow: 1;
+    margin: 15px; /* Added margin for gap between sections */
 }
 
 .section-title {
@@ -61,28 +68,24 @@ p {
 
 /* Desktop view */
 @media (min-width: 992px) {
-    .col-lg-4 {
-        float: left;
-        width: 33.33%;
+    section {
+        flex-basis: calc(33.33% - 30px);
     }
 }
 
 /* Tablet view */
 @media (min-width: 768px) and (max-width: 991px) {
-    .col-md-6 {
-        float: left;
-        width: 50%;
+    section {
+        flex-basis: calc(50% - 30px);
     }
-    .col-md-12 {
-        float: left;
-        width: 100%;
+    section:last-child {
+        flex-basis: calc(100% - 30px);
     }
 }
 
 /* Mobile view */
 @media (max-width: 767px) {
-    .col-sm-12 {
-        float: left;
-        width: 100%;
+    section {
+        flex-basis: calc(100% - 30px);
     }
 }
